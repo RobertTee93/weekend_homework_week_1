@@ -84,9 +84,10 @@ def customer_can_afford_pet(customer, pet_name)
 end
 
 def sell_pet_to_customer(pet_shop, pet_name, customer)
-  # check if customer can afford pet by name
+  # check if pet exists
   if pet_name != nil
-    if customer[:cash] > pet_name[:price]
+    #check if customer can afford
+    if customer_can_afford_pet(customer, pet_name) == true
       # remove customer cash
       customer[:cash] -= pet_name[:price]
       #update shops total cash
